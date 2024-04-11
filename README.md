@@ -1,5 +1,5 @@
 # Groc-everyday - Grocery Store Application
-CRUD Application built as a part of the course - Modern Application Development: 2
+CRUD Application built as a part of the course - Modern Application Development: 1
 
 Web-Framework: Flask
 Front End: HTML and CSS
