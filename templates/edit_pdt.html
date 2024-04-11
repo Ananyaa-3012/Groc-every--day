@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block main %}
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/admin/dashboard">Groc(every)-day</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Groc(every)-day</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+<center>
+    <br>
+    <br>
+    <h1>Edit Product</h1>
+    <br>
+    <table>
+        <form method="POST" action="">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="name" value="{{pdt.name}}">
+                </td>
+            </tr>
+            <tr>
+                <td>Stock</td>
+                <td>
+                    <input type="number" name="stock" value="{{pdt.stock}}" step="1">
+                </td>
+            </tr>
+            <tr>
+                <td>Unit</td>
+                <td>
+                    <select name="unit">
+                        <option value="" selected disabled hidden>Choose Unit</option>
+                        <option value="kg">Kilograms</option>
+                        <option value="l">Litres</option>
+                        <option value="ml">Millilitres</option>
+                        <option value="g">Grams</option>
+                        <option value="nos">Nos</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Expiry</td>
+                <td>
+                    <input type="date" name="expiry" value="{{pdt.expiry}}">
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    <input type="text" name="price" value="{{pdt.price}}">
+                </td>
+            </tr>
+    </table>
+<input type="submit" value="Modify Category">
+</form>
+</center>
+{% endblock %}

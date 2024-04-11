@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block main %}
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/user/dashboard/{{message}}">Groc(every)-day</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Groc(every)-day</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/user/checkout">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <center>
+
+    {% if cart%}
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+      <h2>Your Cart</h2>      
+      </div>
+
+        <table style="border: 1px solid black; border-collapse: collapse; text-align: center;">
+          <ul class="list-group list-group-flush">
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+        </tr>
+        {% for item in cart %} 
+        <li class="list-group-item">
+        <tr>
+            <td>{{item.product}}</td>
+            <td>{{item.qty}}</td>
+        </tr>
+        </li>
+        {% endfor %}
+      </table>
+      </ul>
+    </div>
+
+{% else %}
+<h3>Cart is empty...</h3><br>
+<p>Add items to the cart</p>
+{% endif %}
+<br>
+<h3>Total Amount: {{total}}</h3>
+<br>
+<a class="btn btn-primary" href="/user/clr_cart" role="button">Clear Cart</a>
+<a class="btn btn-primary" href="/user/dashboard/{{message}}" role="button">Continue Shopping</a><br><br>
+<a class="btn btn-primary" href="/user/checkout" role="button">Proceed to Checkout</a>
+</center>
+{% endblock %}
