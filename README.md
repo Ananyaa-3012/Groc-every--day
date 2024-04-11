@@ -8,10 +8,7 @@ Back End: SQLite
 # How to access the application 
 
 ## Step 1
-Download all the files and extract them onto your local computer
-
-## Step 2
 Install all dependencies by performing `pip install -r requirements.txt`
 
-## Step 3
+## Step 2
 Run the `app.py` and click on the link
